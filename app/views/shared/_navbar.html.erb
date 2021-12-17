@@ -9,9 +9,20 @@
         <li class="nav-item">
           <%= link_to "About", about_path, class: "nav-link" %>
         </li>
-        <li class="nav-item">
-          <%= link_to "Sign Up", new_user_path, class: "nav-link" %>
-        </li>
+
+<!-- finding email address of signed in user -->
+        <% if current_user %>
+          <li class="nav-item">
+            <%= link_to "Sign Out", session_path, method: :delete, class: "nav-link" %>
+          </li>
+        <% else %>
+          <li class="nav-item">
+            <%= link_to "Sign In", new_session_path, class: "nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Sign Up", new_user_path, class: "nav-link" %>
+          </li>
+        <% end %>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Dropdown link

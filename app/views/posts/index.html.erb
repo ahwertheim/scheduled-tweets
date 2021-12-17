@@ -1,11 +1,13 @@
-<p id="notice"><%= notice %></p>
 <div class="d-flex align-items-center justify-content-center">
   <h1>Posts</h1>
 </div>
 
 <% if @user %>
-  <%= @user.email %>
+  Successfully logged in as: <%= @user.email %>
+  <%= button_to "Logout", session_path, method: :delete %>
 <% end %>
+
+
 
 <table>
   <thead>
