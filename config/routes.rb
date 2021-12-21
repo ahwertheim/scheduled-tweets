@@ -11,5 +11,14 @@ Rails.application.routes.draw do
 
   resource :session, only: [:new, :create, :destroy]
   get "signin" => "sessions#new"
-  
+  post "signin" => "sessions#create"
+  delete "logout" => "sessions#destroy"
+
+  get "password" => "passwords#edit", as: :edit_password
+  patch "password" => "passwords#update", as: :update_password
+
+  get "password/reset" => "password_resets#new"
+  post "password/reset" => "password_resets#create"
+  get "password/reset/edit" => "password_resets#edit"
+  patch "password/reset/edit" => "password_resets#update"
 end

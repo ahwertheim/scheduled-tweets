@@ -1,0 +1,7 @@
+Hi <%= @user %>, <br>
+
+Someone requested a reset of your password. If this was you please follow the link below to reset your password <br>
+
+This link is only active for 15 minutes. <br>
+
+<%= link_to "Reset password", password_reset_edit_url(token: @token) %>
