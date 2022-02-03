@@ -1,0 +1,22 @@
+<h1>Schedule a Tweet</h1>
+
+<%= form_with model: @tweet do |f| %>
+  <%= render "shared/form_errors", form: f %>
+
+  <div class="mb-3">
+    <%= f.label :twitter_account_id %>
+    <%= f.collection_select :twitter_account_id, Current.user.twitter_accounts, :id, :username, {}, { class: "form-control"} %>
+  </div>
+
+  <div class="mb-3">
+    <%= f.label :body %>
+    <%= f.text_area :body, class: "form-control" %>
+  </div>
+
+  <div class="mb-3">
+    <%= f.label :publish_at %>
+    <%= f.datetime_select :publish_at %>
+  </div>
+
+  <%= f.button "Schedule Tweet", class: "btn btn-primary" %>
+<% end %>

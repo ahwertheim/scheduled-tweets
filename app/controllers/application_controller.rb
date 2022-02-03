@@ -7,32 +7,11 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def current_user
-    User.find_by(id: session[:user_id])
+  def require_user_logged_in!
+    redirect_to signin_path, alert: "You must be signed in to do that." if Current.user.nil?
   end
 
-  helper_method :current_user
 
-  def require_user_logged_in
-    unless Current.user
-      session[:intended_url] = request.url
-      redirect_to signin_url, alert: "Please sign in first"
-    end
-  end
-
-  def current_user?(user)
-    current_user == user
-  end
-
-  # def current_user_admin?
-  #   current_user && current_user.admin?
-  # end
-
-  # def require_admin
-  #   unless current_user_admin?
-  #     redirect_to root_url, alert: "Unauthorised access!"
-  #   end
-  # end
 
 
 end
