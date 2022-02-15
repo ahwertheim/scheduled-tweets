@@ -80,6 +80,7 @@ GEM
       xpath (~> 3.2)
     childprocess (4.1.0)
     concurrent-ruby (1.1.9)
+    connection_pool (2.2.5)
     crass (1.0.6)
     cssbundling-rails (0.2.7)
       railties (>= 6.0.0)
@@ -190,6 +191,7 @@ GEM
     rb-fsevent (0.11.0)
     rb-inotify (0.10.1)
       ffi (~> 1.0)
+    redis (4.6.0)
     regexp_parser (2.2.0)
     rename (1.0.8)
       activesupport
@@ -212,6 +214,10 @@ GEM
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2)
     semantic_range (3.0.0)
+    sidekiq (6.4.1)
+      connection_pool (>= 2.2.2)
+      rack (~> 2.0)
+      redis (>= 4.2.0)
     simple_oauth (0.3.1)
     spring (4.0.0)
     sprockets (4.0.2)
@@ -286,6 +292,7 @@ DEPENDENCIES
   rename
   sass-rails (>= 6)
   selenium-webdriver
+  sidekiq (~> 6.4, >= 6.4.1)
   spring
   sqlite3 (~> 1.4)
   turbolinks (~> 5)
